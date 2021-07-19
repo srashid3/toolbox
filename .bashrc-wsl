@@ -24,7 +24,7 @@ alias venv="python3 -m venv venv"
 alias activate="ls venv > /dev/null 2>&1 && source venv/bin/activate"
 
 # connect to X server
-export DISPLAY=localhost:0.0
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 
 # supress pygame warnings
 export SDL_AUDIODRIVER=dsp

@@ -29,3 +29,16 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
 # supress pygame warnings
 export SDL_AUDIODRIVER=dsp
 export LIBGL_ALWAYS_INDIRECT=1
+
+# functions
+function lowercase() {
+    echo $1 | tr "[:upper:]" "[:lower:]"
+}
+
+function uppercase() {
+    echo $1 | tr "[:lower:]" "[:upper:]"
+}
+
+function zombies() {
+    ps axo stat,ppid,pid,comm | grep -w defunct
+}
